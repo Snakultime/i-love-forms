@@ -1,0 +1,40 @@
+<form method="POST" action="/user">
+      <p class="col-lg-12">
+
+        <label for="pseudo">Votre pseudo :</label><br />
+        <input type="text" name="username" id="username" placeholder="Ex : Zozor" size="30" maxlength="10" /><br />
+
+        <label for="bio">Décris ta vie :</label><br />
+        <textarea name="bio" id="bio"> </textarea><br />
+
+        <label for="email">Mets ton email :</label><br />
+        <input type="email" name="email" id="email"/><br />
+
+
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Envoyer" /><br />
+      </p>
+  </form>
+
+<p>
+<%= form_tag url_for(action: 'create'), method: "POST" do %>
+
+  <%= label_tag 'Username' %>
+  <%= text_field_tag 'username', @user %>
+  <br /> <br />
+
+  <%= label_tag 'Bio' %>
+  <%= text_area_tag 'bio', @user %>
+  <br /> <br />
+
+  <%= label_tag 'Email' %>
+  <%= text_field_tag 'email', @user %>
+  <br /> <br />
+
+  <%= submit_tag 'Update Post' %>
+
+<% end %>
+</p>
+
+
+        </p>
