@@ -10,7 +10,8 @@ Rails version 5.2.1
 
 1/ bundle </br>
 2/ rails db:reset </br>
-3/ Enjoy ! </br>
+3/ rails db:migrate</br>
+4/ Enjoy ! </br>
 
 ## Lien vers un nom de domaine Heroku
 
