@@ -2,10 +2,10 @@
       <p class="col-lg-12">
 
         <label for="pseudo">Votre pseudo :</label><br />
-        <input type="text" name="username" id="username" placeholder="Ex : Zozor" size="30" maxlength="10" /><br />
+        <input type="string" name="username" id="username" placeholder="Ex : Zozor" size="30" maxlength="10" /><br />
 
         <label for="bio">Décris ta vie :</label><br />
-        <textarea name="bio" id="bio"> </textarea><br />
+        <textarea type ="text" name="bio" id="bio"> </textarea><br />
 
         <label for="email">Mets ton email :</label><br />
         <input type="email" name="email" id="email"/><br />
@@ -36,5 +36,15 @@
 <% end %>
 </p>
 
+<form group>
+<p>
+  <%= form_for @user, url: {action: "create_form"} do |f| %>
 
+      Username: <%= f.text_field :username %>
+      Email: <%= f.text_field :email %>
+      Gossip: <%= f.text_area :bio %>
+      <%= f.submit%>
+
+  <% end %>
         </p>
+      </form group>
