@@ -17,11 +17,9 @@ class UserController < ApplicationController
   end
 
   def create_form
-    @user = User.new
-    @user.username = params["user"]["username"]
-    @user.bio = params["user"]["bio"]
-    @user.email = params["user"]["email"]
-    if @user.save
+    @post = User.create!('username' => params[:user][:username],
+            'bio' => params[:user][:bio], 'email' => params[:user][:email])
+    if @post.save
        redirect_to "/"
     else
 

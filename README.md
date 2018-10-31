@@ -12,7 +12,7 @@ Rails version 5.2.1
 2/ rails db:reset </br>
 3/ Enjoy ! </br>
 
-# Lien vers un nom de domaine Heroku
+## Lien vers un nom de domaine Heroku
 
 https://i-fucking-love-forms.herokuapp.com/
 
