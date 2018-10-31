@@ -1,0 +1,93 @@
+<body>
+
+<html>
+  <body>
+
+<form action="/users" method="POST">
+	<h2> Voici un formulaire HTML</h2>
+  <div class="form-group row">
+    <label for="username" class="col-sm-1 col-form-label">Username</label>
+        <div class="col-sm-10">
+    <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" placeholder="Renseigne ton pseudo">
+    <small  id="usernamelHelp" class="form-text text-muted">Entre un username qui te plais bien</small>
+  </div>
+</div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-1 col-form-label">Email</label>
+      <div class="col-sm-10">
+    <input type="email" class="form-control" name="email" id="email" placeholder="Renseigne ton e-mail">
+     <small id="emaillHelp" class="form-text text-muted">L'email que tu renseigne ne sera jamais divulgué !</small>
+  </div>
+  </div>
+  <div class="form-group row">
+    <label for="bio" class="col-sm-1 col-form-label">bio</label>
+     <div class="col-sm-10">
+    <textarea class="form-control" name="bio" id="bio" rows="3"></textarea>
+  </div>
+</div>
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+ <div class="form-group row">
+ <div class="col-sm-10">
+  <button type="submit" class="btn btn-primary">Envoyer</button>
+ </div>
+</div>
+</form>
+<br><br>
+
+
+    <%= form_tag url_for(action:'create'), method: "post" do %>
+    <h2> Voici un formulaire form_tag</h2>
+	<div class="form-group row">
+     <label for="username" class="col-sm-1 col-form-label">Username</label>
+      <div class="col-sm-10">
+     <input class="form-control" type="text" placeholder="Renseigne ton pseudo" <%= text_field_tag 'username', @post%>
+ 	</div>
+ </div>
+
+	<div class="form-group row">
+		<label for="email" class="col-sm-1 col-form-label">Email</label>
+		 <div class="col-sm-10">
+      <input class="form-control" type="text" placeholder="Renseigne ton e-mail" <%= email_field_tag 'email', @post %>
+ 	</div>
+    </div>
+	<div class="form-group row">
+      <label for="bio" class="col-sm-1 col-form-label">bio</label>
+     <div class="col-sm-10">
+    <textarea class="form-control" row="3"  <%= text_area_tag 'bio', @post %>
+   </div>
+    </div>
+	<div class="form-group row">
+     <button type="submit" class="btn btn-primary"> Envoyer</button>
+
+    <% end %>
+  </div>
+  </div>
+
+  <h2> Voici un formulaire form_for</h2>
+
+  <%= form_for @user, url: {action: "create"} do |f| %>
+   <div class="form-group row">
+   <label for="username" class="col-sm-1 col-form-label">Username</label>
+   <div class="col-sm-10">
+  <input class="form-control" type="text" placeholder="Renseigne ton pseudo" username : <%= f.text_field :username %>
+</div>
+</div>
+<div class="form-group row">
+<label for="email" class="col-sm-1 col-form-label">Email</label>
+ <div class="col-sm-10">
+<input class="form-control" type="text" placeholder="Renseigne ton e-mail" email : <%= f.text_field :email %>
+</div>
+</div>
+<div class="form-group row">
+  <label for="bio" class="col-sm-1 col-form-label">bio</label>
+     <div class="col-sm-10">
+  <textarea class="form-control" row="3" bio : <%= f.text_area :bio %></textarea>
+ </div>
+</div>
+<div class="form-group row">
+ <button type="submit" class="btn btn-primary"> Envoyer</button>
+
+<% end %>
+</div>
+</div>
+</body>
